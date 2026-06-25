@@ -3,87 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weekly Content Engine</title>
-  <meta name="description" content="Approval-first content workflow for early-stage founders.">
+  <title>Weekly Content Engine — Approval Packet</title>
   <style>
-    :root { color-scheme: light; --ink:#17202a; --muted:#5c6672; --paper:#fffaf3; --card:#ffffff; --line:#eadfce; --accent:#c56b32; --accent-dark:#88461f; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at top left, #ffe7c7, transparent 34rem), var(--paper); color:var(--ink); line-height:1.5; }
-    main { width:min(1120px, calc(100% - 32px)); margin:0 auto; padding:64px 0; }
-    .hero { display:grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap:32px; align-items:center; }
-    h1 { font-size: clamp(2.4rem, 6vw, 5.5rem); line-height:.95; letter-spacing:-.07em; margin:0 0 20px; }
-    h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing:-.04em; margin:0 0 14px; }
-    p { color:var(--muted); font-size:1.05rem; }
-    .eyebrow { color:var(--accent-dark); font-weight:800; text-transform:uppercase; letter-spacing:.14em; font-size:.8rem; }
-    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
-    .button { display:inline-flex; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:750; border:1px solid var(--accent); }
-    .primary { background:var(--accent); color:white; }
-    .secondary { color:var(--accent-dark); background:#fff7ed; }
-    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:28px; padding:26px; box-shadow:0 24px 80px rgba(82,50,20,.12); }
-    .bundle { display:grid; gap:18px; }
-    .pillrow { display:flex; flex-wrap:wrap; gap:8px; }
-    .pill { border:1px solid var(--line); border-radius:999px; padding:7px 11px; background:#fffaf4; color:#6f4930; font-weight:700; font-size:.86rem; }
-    .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin-top:40px; }
-    .section { margin-top:64px; }
-    ul { padding-left:1.2rem; }
-    li { margin:.5rem 0; color:var(--muted); }
-    li strong { color:var(--ink); }
-    pre { white-space:pre-wrap; overflow:auto; background:#17202a; color:#f8efe5; border-radius:20px; padding:18px; font-size:.9rem; }
-    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    .footer { margin-top:64px; color:var(--muted); font-size:.9rem; }
-    @media (max-width: 860px) { .hero, .grid { grid-template-columns:1fr; } main { padding:40px 0; } }
-  </style>
+    body{font-family:Inter,system-ui,sans-serif;margin:0;background:#fff8ef;color:#17202a}main{max-width:1040px;margin:auto;padding:48px 20px}.hero,.card{background:#fff;border:1px solid #eadfce;border-radius:24px;padding:24px;margin:18px 0;box-shadow:0 18px 60px rgba(82,50,20,.10)}h1{font-size:clamp(2rem,5vw,4rem);line-height:.95;letter-spacing:-.06em}.eyebrow{color:#914d21;font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.button{display:inline-block;background:#c56b32;color:#fff;text-decoration:none;border-radius:999px;padding:10px 14px;font-weight:750}pre{white-space:pre-wrap;background:#17202a;color:#fff8ef;border-radius:16px;padding:16px}.actions{display:flex;gap:12px;flex-wrap:wrap}button{border:0;border-radius:999px;background:#17202a;color:white;padding:12px 16px;font-weight:800;cursor:pointer}.status{padding:12px 14px;background:#fff3dd;border-radius:14px}</style>
 </head>
 <body>
   <main>
     <section class="hero">
-      <div>
-        <div class="eyebrow">Weekly Content Engine v0.1</div>
-        <h1>One credible content decision. No generic posting machine.</h1>
-        <p>Turns founder notes, links, and community pain into a daily approval bundle: 1–3 angles, one recommendation, cited evidence, platform fit, and an editable draft or reply.</p>
-        <div class="actions">
-          <a class="button primary" href="sample-output.json">View sample output</a>
-          <a class="button secondary" href="https://github.com/daramrocha-art/weekly-content-engine-site">Public site repo</a>
-        </div>
+      <p class="eyebrow">Owner-approved outreach + measurement</p>
+      <h1>Two public drafts. Tracked links. No publish without approval.</h1>
+      <p class="status">Packet status: <strong>blocked_pending_approval_context</strong>. Missing: <strong>ownerApproval</strong>.</p>
+      <p>Use the tracked links in <code>approval-packet.json</code>. Owner edits can change post text, but must preserve draft ids and links.</p>
+      <div class="actions">
+        <button data-event="request_sample">Request sample</button>
+        <button data-event="join_waitlist">Join waitlist</button>
+        <a class="button" href="approval-packet.json">Download approval packet</a>
       </div>
-      <aside class="card bundle" aria-label="Sample approval bundle">
-        <div class="eyebrow">Recommended approval bundle</div>
-        <h2>Reply where the conversation already has pain: Zero audience thread</h2>
-        <div class="pillrow">
-          <span class="pill">X</span>
-          <span class="pill">Reply opportunity: true</span>
-          <span class="pill">approve · edit · skip</span>
-        </div>
-        <p>Best bet for an early-stage founder: timely because the source material is recent enough to act on now, credible because it cites C1, N1, and relevant because it preserves concrete pain/details instead of manufacturing a generic post.</p>
-        <pre><code>The part I would double down on is the non-pitch answer: zero audience feels like silence (C1). A useful reply could add one concrete example, then ask what the person has already tried. No product mention.</code></pre>
-      </aside>
     </section>
+    <section class="grid">
+    <article class="card">
+      <p class="eyebrow">LinkedIn Draft 1 · LinkedIn</p>
+      <h2>linkedin-draft-1</h2>
+      <p>It names the approval-first workflow and measurement gap without asking the audience to buy or pretending there is traction yet.</p>
+      <pre>We shipped the first version of Weekly Content Engine and learned the uncomfortable part fast: a good approval workflow still produces zero learning if nothing approved goes live.
 
-    <section class="grid" aria-label="Product promises">
-      <div class="card"><h2>Real sources</h2><p>Accepts founder notes, links/articles, and community/customer snippets. Every idea keeps its evidence trail.</p></div>
-      <div class="card"><h2>Capped output</h2><p>Produces 1–3 candidate angles and marks exactly one as the best bet, with rationale.</p></div>
-      <div class="card"><h2>Reputation gate</h2><p>If inputs are weak, it says <strong>no strong post today</strong> instead of generating filler.</p></div>
-    </section>
+So v2 is deliberately smaller: two owner-approved public drafts, tracked links, and a basic response summary.
 
-    <section class="section card">
-      <h2>Candidate angles from the sample run</h2>
-      <ul><li><strong>Reply where the conversation already has pain: Zero audience thread</strong><br><span>X · reply opportunity</span></li><li><strong>Make the lesson sharper: Zero audience thread</strong><br><span>X · top level post</span></li><li><strong>Show the operator decision inside Monday product note</strong><br><span>LinkedIn · top level post</span></li></ul>
-    </section>
+The goal is not more content. It is knowing whether a founder/operator story, grounded in real notes and community pain, earns a click, reply, sample request, or waitlist join.
 
-    <section class="section card">
-      <h2>Evidence trail</h2>
-      <ul><li><strong>C1</strong> — Zero audience thread: A founder said marketing with zero audience feels like silence. The comments that worked were genuine answers to real questions, no pitching, while direct product pitches were ignored or downvoted.</li><li><strong>N1</strong> — Monday product note: We keep trying to write five posts at once, but the useful insight is the customer quote: &quot;I do not need more templates, I need to know what is safe to say today.&quot; The weekly review should choose one post, not fill a ca…</li></ul>
-    </section>
+If the source material is weak, the system still says: no strong post today. Reputation beats volume.</pre>
+      <a class="button" href="https://daramrocha-art.github.io/weekly-content-engine-site/?source=linkedin&amp;draft_id=linkedin-draft-1">Tracked destination</a>
+    </article>
 
-    <section class="section card">
-      <h2>Run locally</h2>
-      <pre><code>npm test
-npm run check
-node src/cli.js examples/sources.json</code></pre>
-      <p>The source product repo is private; this public companion site is published with GitHub Pages.</p>
-    </section>
+    <article class="card">
+      <p class="eyebrow">X Draft 2 · X</p>
+      <h2>x-draft-2</h2>
+      <p>It is concise, source-grounded, and points to a measurable demo instead of pitching in a community thread.</p>
+      <pre>A content engine that never publishes is just a nicer notes app.
 
-    <p class="footer">Built by autonomous loop loop-66418f4abf. Nothing publishes automatically; owner approval is required.</p>
+This iteration: 2 approved drafts, tracked links, and a cheap feedback artifact if posts=0.
+
+No scheduler. No auto-DMs. Just: did anyone click, reply, request a sample, or join the waitlist?</pre>
+      <a class="button" href="https://daramrocha-art.github.io/weekly-content-engine-site/?source=x&amp;draft_id=x-draft-2">Tracked destination</a>
+    </article></section>
   </main>
+  <script src="tracker.js"></script>
 </body>
 </html>

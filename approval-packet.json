@@ -1,0 +1,124 @@
+{
+  "status": "blocked_pending_approval_context",
+  "generatedAt": "2026-06-25T22:02:22.883Z",
+  "ownerApprovalRequired": true,
+  "ownerApproval": false,
+  "requiredContextTuple": [
+    "persona",
+    "community",
+    "phaseState"
+  ],
+  "missing": [
+    "ownerApproval"
+  ],
+  "phaseSafeSequencing": {
+    "firstPublicPlatforms": [
+      "LinkedIn",
+      "X"
+    ],
+    "delayed": [
+      "Hacker News"
+    ],
+    "replyOnlyRuleChecked": [
+      "Reddit",
+      "Indie Hackers"
+    ],
+    "note": "Do not publish to Hacker News yet; do not create Reddit or Indie Hackers top-level posts in this slice."
+  },
+  "drafts": [
+    {
+      "draftId": "linkedin-draft-1",
+      "label": "LinkedIn Draft 1",
+      "targetPlatform": "LinkedIn",
+      "audience": "early-stage founders who have a product but are unsure what to say publicly",
+      "evidence": [
+        "E1",
+        "E2",
+        "E3",
+        "E5",
+        "E12"
+      ],
+      "safeReason": "It names the approval-first workflow and measurement gap without asking the audience to buy or pretending there is traction yet.",
+      "finalText": "We shipped the first version of Weekly Content Engine and learned the uncomfortable part fast: a good approval workflow still produces zero learning if nothing approved goes live.\n\nSo v2 is deliberately smaller: two owner-approved public drafts, tracked links, and a basic response summary.\n\nThe goal is not more content. It is knowing whether a founder/operator story, grounded in real notes and community pain, earns a click, reply, sample request, or waitlist join.\n\nIf the source material is weak, the system still says: no strong post today. Reputation beats volume.",
+      "intendedAudience": "early-stage founder with a product but no repeatable distribution habit",
+      "contextTuple": {
+        "persona": "early-stage founder with a product but no repeatable distribution habit",
+        "community": "LinkedIn founder/operator circle and X builder audience",
+        "phaseState": "phase-1: two approved public posts, no HN launch, Reddit/Indie Hackers reply-only"
+      },
+      "trackedDestination": "https://daramrocha-art.github.io/weekly-content-engine-site/?source=linkedin&draft_id=linkedin-draft-1",
+      "editSafety": {
+        "preserveDraftId": "linkedin-draft-1",
+        "preserveTrackingLink": "https://daramrocha-art.github.io/weekly-content-engine-site/?source=linkedin&draft_id=linkedin-draft-1",
+        "note": "Owner may edit finalText before publishing, but must keep draftId and trackedDestination unchanged for attribution."
+      },
+      "reputationChecks": {
+        "citesSourceMaterial": true,
+        "avoidsGenericOpeners": true,
+        "avoidsDirectCommunityPitch": true,
+        "volumeCap": "exactly_two_public_drafts"
+      }
+    },
+    {
+      "draftId": "x-draft-2",
+      "label": "X Draft 2",
+      "targetPlatform": "X",
+      "audience": "builders testing distribution with small public bets",
+      "evidence": [
+        "E1",
+        "E2",
+        "E8",
+        "E10",
+        "E14"
+      ],
+      "safeReason": "It is concise, source-grounded, and points to a measurable demo instead of pitching in a community thread.",
+      "finalText": "A content engine that never publishes is just a nicer notes app.\n\nThis iteration: 2 approved drafts, tracked links, and a cheap feedback artifact if posts=0.\n\nNo scheduler. No auto-DMs. Just: did anyone click, reply, request a sample, or join the waitlist?",
+      "intendedAudience": "early-stage founder with a product but no repeatable distribution habit",
+      "contextTuple": {
+        "persona": "early-stage founder with a product but no repeatable distribution habit",
+        "community": "LinkedIn founder/operator circle and X builder audience",
+        "phaseState": "phase-1: two approved public posts, no HN launch, Reddit/Indie Hackers reply-only"
+      },
+      "trackedDestination": "https://daramrocha-art.github.io/weekly-content-engine-site/?source=x&draft_id=x-draft-2",
+      "editSafety": {
+        "preserveDraftId": "x-draft-2",
+        "preserveTrackingLink": "https://daramrocha-art.github.io/weekly-content-engine-site/?source=x&draft_id=x-draft-2",
+        "note": "Owner may edit finalText before publishing, but must keep draftId and trackedDestination unchanged for attribution."
+      },
+      "reputationChecks": {
+        "citesSourceMaterial": true,
+        "avoidsGenericOpeners": true,
+        "avoidsDirectCommunityPitch": true,
+        "volumeCap": "exactly_two_public_drafts"
+      }
+    }
+  ],
+  "publishInstructions": [
+    {
+      "draftId": "linkedin-draft-1",
+      "platform": "LinkedIn",
+      "action": "blocked_do_not_publish",
+      "trackedDestination": "https://daramrocha-art.github.io/weekly-content-engine-site/?source=linkedin&draft_id=linkedin-draft-1"
+    },
+    {
+      "draftId": "x-draft-2",
+      "platform": "X",
+      "action": "blocked_do_not_publish",
+      "trackedDestination": "https://daramrocha-art.github.io/weekly-content-engine-site/?source=x&draft_id=x-draft-2"
+    }
+  ],
+  "measurement": {
+    "minimumEvents": [
+      "click",
+      "request_sample",
+      "join_waitlist"
+    ],
+    "attributionKeys": [
+      "sourcePlatform",
+      "draftId",
+      "timestamp"
+    ],
+    "eventStore": "data/events.jsonl",
+    "responseSummaryCommand": "node src/cli.js feedback data/events.jsonl data/published-posts.json"
+  }
+}
